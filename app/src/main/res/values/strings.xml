@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PlacesAutocomplete</string>
+    <string name="open_activity">Open Autocomplete Activity</string>
+    <string name="selected_place">Lugar seleccionado:</string>
+</resources>
