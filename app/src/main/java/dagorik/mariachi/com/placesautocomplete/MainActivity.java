@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }else {
             googleMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+            
         }
     }
 
