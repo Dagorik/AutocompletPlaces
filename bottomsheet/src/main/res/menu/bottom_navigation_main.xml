@@ -1,27 +1,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/inicioItem"
+        android:id="@+id/inventario"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/inicio" />
+        android:title="@string/menu_inventario" />
 
     <item
-        android:id="@+id/buscarItem"
+        android:id="@+id/pedidos"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/buscar" />
+        android:title="@string/menu_pedidos" />
 
     <item
-        android:id="@+id/circleitem"
+        android:id="@+id/nada"
         android:title=" " />
 
     <item
-        android:id="@+id/favoritosItem"
+        android:id="@+id/gastos"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/favoritos" />
+        android:title="@string/menu_gastos" />
 
     <item
-        android:id="@+id/perfilItem"
+        android:id="@+id/menu"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/perfil" />
+        android:title="@string/menu_menu" />
 
 
 </menu>

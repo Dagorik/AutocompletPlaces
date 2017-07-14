@@ -4,10 +4,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="inicio">Home</string>
-    <string name="buscar">Search</string>
-    <string name="camara">Camera</string>
-    <string name="favoritos">Favorites</string>
-    <string name="perfil">Profile</string>
+    <string name="menu_inventario">Inventario</string>
+    <string name="menu_pedidos">Pedidos</string>
+    <string name="menu_nada"></string>
+    <string name="menu_gastos">Gastos</string>
+    <string name="menu_menu">Menú</string>
 
 </resources>

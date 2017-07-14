@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.circleitem:
+                    case R.id.nada:
                         BottomSheetDialogFragment bsdFragment =
                                 MiBottomSheetDialogFragment.newInstance();
 
