@@ -14,6 +14,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -63,7 +64,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         try {
             //MODE_FULLSCREEN: Te manda a otra actvidad
             //MODE_OVERLAY: Te abre en la misma actividad el buscador
+            AutocompleteFilter typeFilter = new AutocompleteFilter.Builder().
+                    setTypeFilter(Place.TYPE_COUNTRY).setCountry("MX").build();
             Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
+                    .setFilter(typeFilter)
                     .build(this);
             startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
         } catch (GooglePlayServicesRepairableException e) {
