@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView ivCircleButton;
     private BottomNavigationView bottomNavigationView;
-    private TextView infoTextView;
 
 
     @Override
