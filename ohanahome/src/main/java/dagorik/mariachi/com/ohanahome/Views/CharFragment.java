@@ -44,6 +44,8 @@ public class CharFragment extends Fragment implements IFragmentChar {
     private LinearLayout linearLayoutNames;
     private LinearLayout linearLayoutNames2;
     private ViewPager upViewPagerMonth;
+    private LinearLayout linearLayoutNames3;
+    boolean bol = true;
 
 
     public CharFragment() {
@@ -67,6 +69,7 @@ public class CharFragment extends Fragment implements IFragmentChar {
         mViewPager = (ViewPager) view.findViewById(R.id.vp_month);
         linearLayoutNames = view.findViewById(R.id.ll_color_names);
         linearLayoutNames2 = view.findViewById(R.id.ll_color_names2);
+        linearLayoutNames3 = view.findViewById(R.id.ll_color_names3);
 
 
         setUpViewPagerMonth(mViewPager);
@@ -99,20 +102,20 @@ public class CharFragment extends Fragment implements IFragmentChar {
     @Override
     public void setColorNames(List<String> name) {
 
-//        Observable.fromIterable(name).subscribe(namws -> Log.e("MyLOgO",namws));
 
         Observable.fromIterable(name).subscribe(text -> {
 
             TextView myTextView = new TextView(getActivity());
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-            myTextView.setLayoutParams(params);
-
             myTextView.setText(text.toString());
-            if (rnd.nextBoolean()) {
+
+
+            if (bol) {
                 linearLayoutNames2.addView(myTextView);
+                bol = false;
             } else {
-                linearLayoutNames.addView(myTextView);
+                linearLayoutNames3.addView(myTextView);
+                bol = true;
             }
 
         });
