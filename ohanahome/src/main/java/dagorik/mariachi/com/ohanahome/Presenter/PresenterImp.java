@@ -28,6 +28,9 @@ public class PresenterImp implements IPresenter {
         interactor = new InteractorImp();
     }
 
+    public PresenterImp() {
+    }
+
     @Override
     public void drawBar() {
         getPorsent();
@@ -37,17 +40,27 @@ public class PresenterImp implements IPresenter {
     public void getPorsent() {
 
         Porcentaje data = interactor.getDataFromAPI();
+
+
+
         List<Porsentajes> data1 = data.getPorsentajes();
         List<String> stringList = new ArrayList<>();
         List<Integer> integerList = new ArrayList<>();
+
         List<Porcentaje> porcentajeList = new ArrayList<>();
         porcentajeList.add(data);
 
+        Log.e("MyList", porcentajeList.toString());
 
-        Observable.fromIterable(data1).subscribe(name -> stringList.add(name.getName()));
-        Observable.fromIterable(data1).subscribe(name -> integerList.add(name.getPorsent()));
 
-        GastosAdapter gastosAdapter = new GastosAdapter(porcentajeList);
+        Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> stringList.add(y.getName()));
+        Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> integerList.add(y.getPorsent()));
+
+        PresenterRV presenterRV = new PresenterRV(porcentajeList);
+
+        activity.setUpRecyclerView(presenterRV);
+
+
         activity.setUpViewPager(integerList, stringList);
     }
 

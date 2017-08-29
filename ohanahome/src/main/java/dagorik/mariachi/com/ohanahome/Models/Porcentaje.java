@@ -27,4 +27,12 @@ public class Porcentaje {
     public void setPorsentajes(List<Porsentajes> porsentajes) {
         this.porsentajes = porsentajes;
     }
+
+    @Override
+    public String toString() {
+        return "Porcentaje{" +
+                "name='" + name + '\'' +
+                ", porsentajes=" + porsentajes +
+                '}';
+    }
 }

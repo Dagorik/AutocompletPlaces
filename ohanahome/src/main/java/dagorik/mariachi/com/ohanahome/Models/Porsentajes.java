@@ -19,4 +19,12 @@ public class Porsentajes {
     public void setPorsent(int porsent) {
         this.porsent = porsent;
     }
+
+    @Override
+    public String toString() {
+        return "Porsentajes{" +
+                "name='" + name + '\'' +
+                ", porsent=" + porsent +
+                '}';
+    }
 }

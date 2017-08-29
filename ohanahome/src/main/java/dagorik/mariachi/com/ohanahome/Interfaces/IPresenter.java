@@ -11,4 +11,7 @@ public interface IPresenter {
     void drawBar();
     void getPorsent();
     void setData();
+
+
+
 }
