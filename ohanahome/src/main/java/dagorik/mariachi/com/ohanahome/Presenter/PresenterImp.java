@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import dagorik.mariachi.com.ohanahome.Adapters.GastosAdapter;
 import dagorik.mariachi.com.ohanahome.Interactor.InteractorImp;
 import dagorik.mariachi.com.ohanahome.Interfaces.IActivity;
 import dagorik.mariachi.com.ohanahome.Interfaces.IPresenter;
@@ -34,15 +35,19 @@ public class PresenterImp implements IPresenter {
 
     @Override
     public void getPorsent() {
+
         Porcentaje data = interactor.getDataFromAPI();
         List<Porsentajes> data1 = data.getPorsentajes();
         List<String> stringList = new ArrayList<>();
         List<Integer> integerList = new ArrayList<>();
+        List<Porcentaje> porcentajeList = new ArrayList<>();
+        porcentajeList.add(data);
 
 
         Observable.fromIterable(data1).subscribe(name -> stringList.add(name.getName()));
         Observable.fromIterable(data1).subscribe(name -> integerList.add(name.getPorsent()));
 
+        GastosAdapter gastosAdapter = new GastosAdapter(porcentajeList);
         activity.setUpViewPager(integerList, stringList);
     }
 
