@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements IActivity {
     @Override
     public void setUpViewPagerMonth(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        //adapter.addFragment(new MonthFragment(), "");
-        //adapter.getPageTitle(3);
         viewPager.setAdapter(adapter);
     }
 

@@ -57,6 +57,7 @@
                     scatter:textSize="50" />
 
                 <LinearLayout
+                    android:layout_marginTop="16dp"
                     android:id="@+id/ll_color_names"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"

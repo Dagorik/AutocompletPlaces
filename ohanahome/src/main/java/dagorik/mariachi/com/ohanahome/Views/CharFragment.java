@@ -8,10 +8,12 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,6 +47,7 @@ public class CharFragment extends Fragment implements IFragmentChar {
     private LinearLayout linearLayoutNames2;
     private ViewPager upViewPagerMonth;
     private LinearLayout linearLayoutNames3;
+    private LinearLayout linearLayoutNames4;
     boolean bol = true;
 
 
@@ -71,13 +74,10 @@ public class CharFragment extends Fragment implements IFragmentChar {
         linearLayoutNames2 = view.findViewById(R.id.ll_color_names2);
         linearLayoutNames3 = view.findViewById(R.id.ll_color_names3);
 
-
         setUpViewPagerMonth(mViewPager);
 
         drawnChart(data);
-        Log.e("MYLogNameeee", name.size() + "");
         setColorNames(name);
-
 
         return view;
     }
@@ -106,15 +106,31 @@ public class CharFragment extends Fragment implements IFragmentChar {
         Observable.fromIterable(name).subscribe(text -> {
 
             TextView myTextView = new TextView(getActivity());
+            ImageView myImageView = new ImageView(getActivity());
 
-            myTextView.setText(text.toString());
+            myTextView.setText("   " + text.toString());
 
+            myImageView.setBackgroundColor(Color.argb(255, rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+
+            LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(50, 50);
+
+            myImageView.setLayoutParams(parms);
+
+            linearLayoutNames4 = new LinearLayout(getActivity());
+            LinearLayout.LayoutParams parmslin = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            linearLayoutNames4.setOrientation(LinearLayout.HORIZONTAL);
+            linearLayoutNames4.setLayoutParams(parmslin);
 
             if (bol) {
-                linearLayoutNames2.addView(myTextView);
+                linearLayoutNames4.addView(myImageView);
+                linearLayoutNames4.addView(myTextView);
+                linearLayoutNames2.addView(linearLayoutNames4);
+
                 bol = false;
             } else {
-                linearLayoutNames3.addView(myTextView);
+                linearLayoutNames4.addView(myImageView);
+                linearLayoutNames4.addView(myTextView);
+                linearLayoutNames3.addView(linearLayoutNames4);
                 bol = true;
             }
 
