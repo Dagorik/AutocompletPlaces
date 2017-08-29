@@ -11,16 +11,16 @@ import android.support.v7.widget.Toolbar;
 import java.util.List;
 
 import dagorik.mariachi.com.ohanahome.Adapters.GastosAdapter;
-import dagorik.mariachi.com.ohanahome.Interfaces.IActivity;
-import dagorik.mariachi.com.ohanahome.Interfaces.IPresenter;
-import dagorik.mariachi.com.ohanahome.Presenter.PresenterImp;
-import dagorik.mariachi.com.ohanahome.Presenter.PresenterRV;
+import dagorik.mariachi.com.ohanahome.Interfaces.IActivityMain;
+import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMain;
+import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainMainImp;
+import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 import dagorik.mariachi.com.ohanahome.R;
 import dagorik.mariachi.com.ohanahome.Adapters.ViewPagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements IActivity {
+public class MainActivityMain extends AppCompatActivity implements IActivityMain {
 
-    IPresenter presenter;
+    IPresenterMain presenter;
     TabLayout tabLayout;
     Toolbar toolbar;
     ViewPager viewPager;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements IActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new PresenterImp(this);
+        presenter = new PresenterMainMainImp(this);
 
         presenter.drawBar();
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements IActivity {
     }
 
     @Override
-    public void setUpRecyclerView(PresenterRV presenterRV) {
+    public void setUpRecyclerView(PresenterMainRV presenterMainRV) {
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_gastos);
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements IActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        GastosAdapter gastosAdaptador = new GastosAdapter(presenterRV);
+        GastosAdapter gastosAdaptador = new GastosAdapter(presenterMainRV);
 
         recyclerView.setAdapter(gastosAdaptador);
     }

@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Dagorik on 25/08/17.
  */
 
-public interface IPresenter {
+public interface IPresenterMain {
 
     void drawBar();
     void getPorsent();

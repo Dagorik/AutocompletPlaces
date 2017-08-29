@@ -5,30 +5,29 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import dagorik.mariachi.com.ohanahome.Adapters.GastosAdapter;
 import dagorik.mariachi.com.ohanahome.Interactor.InteractorImp;
-import dagorik.mariachi.com.ohanahome.Interfaces.IActivity;
-import dagorik.mariachi.com.ohanahome.Interfaces.IPresenter;
+import dagorik.mariachi.com.ohanahome.Interfaces.IActivityMain;
+import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMain;
 import dagorik.mariachi.com.ohanahome.Interfaces.Interactor;
 import dagorik.mariachi.com.ohanahome.Models.Porcentaje;
 import dagorik.mariachi.com.ohanahome.Models.Porsentajes;
-import dagorik.mariachi.com.ohanahome.Views.MainActivity;
+import dagorik.mariachi.com.ohanahome.Views.MainActivityMain;
 import io.reactivex.Observable;
 
 /**
  * Created by Dagorik on 25/08/17.
  */
 
-public class PresenterImp implements IPresenter {
+public class PresenterMainMainImp implements IPresenterMain {
     Interactor interactor;
-    IActivity activity;
+    IActivityMain activity;
 
-    public PresenterImp(MainActivity mainActivity) {
+    public PresenterMainMainImp(MainActivityMain mainActivity) {
         this.activity = mainActivity;
         interactor = new InteractorImp();
     }
 
-    public PresenterImp() {
+    public PresenterMainMainImp() {
     }
 
     @Override
@@ -56,9 +55,9 @@ public class PresenterImp implements IPresenter {
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> stringList.add(y.getName()));
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> integerList.add(y.getPorsent()));
 
-        PresenterRV presenterRV = new PresenterRV(porcentajeList);
+        PresenterMainRV presenterMainRV = new PresenterMainRV(porcentajeList);
 
-        activity.setUpRecyclerView(presenterRV);
+        activity.setUpRecyclerView(presenterMainRV);
 
 
         activity.setUpViewPager(integerList, stringList);

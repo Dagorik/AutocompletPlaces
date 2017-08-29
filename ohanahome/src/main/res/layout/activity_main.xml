@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="dagorik.mariachi.com.ohanahome.Views.MainActivity">
+    tools:context="dagorik.mariachi.com.ohanahome.Views.MainActivityMain">
 
     <include layout="@layout/toolbar_layout" />
 

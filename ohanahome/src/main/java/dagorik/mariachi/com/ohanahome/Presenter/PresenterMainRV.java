@@ -14,13 +14,12 @@ import dagorik.mariachi.com.ohanahome.Models.Porsentajes;
  * Created by Dagorik on 29/08/17.
  */
 
-public class PresenterRV {
+public class PresenterMainRV {
 
     List<Porcentaje> porcentajeList = new ArrayList<>();
 
-    public PresenterRV(List<Porcentaje> porcentajeList) {
+    public PresenterMainRV(List<Porcentaje> porcentajeList) {
         this.porcentajeList = porcentajeList;
-        Log.e("MyPresenterRV", porcentajeList.get(0).getPorsentajes().size() + " ");
     }
 
     public void onBindRepositoryRowViewAtPosition(int position, RowView rowView) {
@@ -33,7 +32,6 @@ public class PresenterRV {
     public int getRepositoriesRowsCount() {
         return porcentajeList.get(0).getPorsentajes().size();
     }
-
 
 }
 
