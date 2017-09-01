@@ -79,10 +79,9 @@ public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView
 
     @Override
     public void setColorNames(List<String> names, Context context) {
-        Log.e("MiContexto",context.toString());
-        Log.e("MiSuperLista",names.toString());
-        Observable.fromIterable(name).subscribe(text -> {
-            Log.e("Observer","Entre");
+
+
+        Observable.fromIterable(names).subscribe(text -> {
 
             TextView myTextView = new TextView(context);
             ImageView myImageView = new ImageView(context);
@@ -114,8 +113,11 @@ public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView
                 linearLayoutNames3.addView(linearLayoutNames4);
                 bol = true;
             }
-
         });
 
+
+
     }
+
+
 }
