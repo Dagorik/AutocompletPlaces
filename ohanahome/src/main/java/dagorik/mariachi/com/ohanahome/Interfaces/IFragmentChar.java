@@ -1,8 +1,12 @@
 package dagorik.mariachi.com.ohanahome.Interfaces;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.intrusoft.scatter.ChartData;
 
 import java.util.List;
+
+import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 
 /**
  * Created by Dagorik on 25/08/17.
@@ -10,7 +14,9 @@ import java.util.List;
 
 public interface IFragmentChar {
 
-    void drawnChart(List<ChartData> data);
 
     void setColorNames(List<String> name);
+
+    void setUpRecyclerView(PresenterMainRV presenterMainRV);
+
 }

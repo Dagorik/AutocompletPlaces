@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import java.util.List;
 
 import dagorik.mariachi.com.ohanahome.Adapters.GastosAdapter;
 import dagorik.mariachi.com.ohanahome.Interfaces.IActivityMain;
+import dagorik.mariachi.com.ohanahome.Interfaces.IFragmentChar;
 import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMain;
+import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMainRV;
 import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainMainImp;
 import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 import dagorik.mariachi.com.ohanahome.R;
@@ -24,8 +27,7 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
     TabLayout tabLayout;
     Toolbar toolbar;
     ViewPager viewPager;
-    ViewPager viewPagerMonth;
-    RecyclerView recyclerView;
+    private CharFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,10 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
         setContentView(R.layout.activity_main);
 
         presenter = new PresenterMainMainImp(this);
+
+
+        fragment = new CharFragment(presenter);
+
 
         presenter.drawBar();
 
@@ -44,15 +50,13 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-
-
     }
 
     @Override
     public void setUpViewPager(List<Integer> porsent, List<String> name) {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new CharFragment(porsent, name), "ESTADÍSTICAS");
+        adapter.addFragment(fragment, "ESTADÍSTICAS");
         adapter.addFragment(new HistoryFragment(), "HISTORIAL");
         viewPager.setAdapter(adapter);
     }
@@ -65,19 +69,7 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
 
     @Override
     public void setUpRecyclerView(PresenterMainRV presenterMainRV) {
+        fragment.setUpRecyclerView(presenterMainRV);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_gastos);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-
-        GastosAdapter gastosAdaptador = new GastosAdapter(presenterMainRV);
-
-        recyclerView.setAdapter(gastosAdaptador);
     }
-
-
 }

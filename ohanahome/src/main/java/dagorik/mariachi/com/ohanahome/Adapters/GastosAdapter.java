@@ -17,6 +17,7 @@ public class GastosAdapter extends RecyclerView.Adapter<ViewHolderGastos> {
 
     PresenterMainRV presenter;
 
+
     public GastosAdapter(PresenterMainRV presenter) {
         this.presenter = presenter;
 
@@ -36,7 +37,6 @@ public class GastosAdapter extends RecyclerView.Adapter<ViewHolderGastos> {
 
     @Override
     public int getItemCount() {
-        Log.e("MyLogCount",presenter.getRepositoriesRowsCount() + "");
         return presenter.getRepositoriesRowsCount();
 
     }

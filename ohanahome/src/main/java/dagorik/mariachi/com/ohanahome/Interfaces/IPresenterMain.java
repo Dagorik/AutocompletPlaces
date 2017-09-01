@@ -10,7 +10,7 @@ public interface IPresenterMain {
 
     void drawBar();
     void getPorsent();
-    void setData();
+    void setRecycler();
 
 
 
