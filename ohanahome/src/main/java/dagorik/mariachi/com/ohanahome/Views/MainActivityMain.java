@@ -1,6 +1,7 @@
 package dagorik.mariachi.com.ohanahome.Views;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
     TabLayout tabLayout;
     Toolbar toolbar;
     ViewPager viewPager;
-    private CharFragment fragment;
+    private IFragmentChar fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
     public void setUpViewPager(List<Integer> porsent, List<String> name) {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(fragment, "ESTADÍSTICAS");
+        adapter.addFragment((Fragment) fragment, "ESTADÍSTICAS");
         adapter.addFragment(new HistoryFragment(), "HISTORIAL");
         viewPager.setAdapter(adapter);
     }

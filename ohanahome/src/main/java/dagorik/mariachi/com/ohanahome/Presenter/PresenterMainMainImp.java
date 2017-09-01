@@ -51,8 +51,6 @@ public class PresenterMainMainImp implements IPresenterMain {
 
         porcentajeList.add(data);
 
-        Log.e("MyList", porcentajeList.toString());
-
 
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> stringList.add(y.getName()));
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> integerList.add(y.getPorsent()));
@@ -67,7 +65,6 @@ public class PresenterMainMainImp implements IPresenterMain {
 
     @Override
     public void setRecycler() {
-        Log.e("MyLOgR",porcentajeList.toString());
         PresenterMainRV presenterMainRV = new PresenterMainRV(porcentajeList);
         activity.setUpRecyclerView(presenterMainRV);
 

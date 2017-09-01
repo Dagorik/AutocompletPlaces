@@ -1,5 +1,6 @@
 package dagorik.mariachi.com.ohanahome.Adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import dagorik.mariachi.com.ohanahome.R;
 public class GastosAdapter extends RecyclerView.Adapter<ViewHolderGastos> {
 
     PresenterMainRV presenter;
+    private Context context;
 
 
     public GastosAdapter(PresenterMainRV presenter) {
@@ -25,13 +27,14 @@ public class GastosAdapter extends RecyclerView.Adapter<ViewHolderGastos> {
 
     @Override
     public ViewHolderGastos onCreateViewHolder(ViewGroup parent, int viewType) {
+        context = parent.getContext();
 
-        return new ViewHolderGastos(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_char, parent, false));
+        return new ViewHolderGastos(LayoutInflater.from(context).inflate(R.layout.item_char, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ViewHolderGastos holder, int position) {
-        presenter.onBindRepositoryRowViewAtPosition(position, holder);
+        presenter.onBindRepositoryRowViewAtPosition(position, holder,context);
 
     }
 

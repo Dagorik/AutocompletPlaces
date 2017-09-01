@@ -1,5 +1,6 @@
 package dagorik.mariachi.com.ohanahome.Presenter;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -26,16 +27,19 @@ public class PresenterMainRV {
     public PresenterMainRV() {
     }
 
-    public void onBindRepositoryRowViewAtPosition(int position, RowView rowView) {
+    public void onBindRepositoryRowViewAtPosition(int position, RowView rowView, Context context) {
         List<Integer> porsent = new ArrayList<>();
+        List<String> names = new ArrayList<>();
         Porcentaje porcentaje = porcentajeList.get(0);
 
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> porsent.add(y.getPorsent()));
+        Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> names.add(y.getName()));
 
         rowView.setStarCountRv(porcentaje.getPorsentajes().get(position).getPorsent());
         rowView.setTitleRv(porcentaje.getPorsentajes().get(position).getName());
-        porcentaje.getPorsentajes().get(position).getPorsent();
         rowView.drawChar(porsent);
+        rowView.setColorNames(names,context);
+
     }
 
     public int getRepositoriesRowsCount() {

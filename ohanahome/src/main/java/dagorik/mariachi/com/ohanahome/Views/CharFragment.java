@@ -38,9 +38,6 @@ import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CharFragment extends Fragment implements IFragmentChar {
 
 
@@ -59,7 +56,6 @@ public class CharFragment extends Fragment implements IFragmentChar {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.e("ENTREEEE","ON CREATE");
         View view = inflater.inflate(R.layout.fragment_char, container, false);
 
 
