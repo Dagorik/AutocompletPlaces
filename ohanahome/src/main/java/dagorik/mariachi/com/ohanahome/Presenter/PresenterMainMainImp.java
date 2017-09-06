@@ -11,6 +11,7 @@ import dagorik.mariachi.com.ohanahome.Interfaces.IActivityMain;
 import dagorik.mariachi.com.ohanahome.Interfaces.IFragmentChar;
 import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMain;
 import dagorik.mariachi.com.ohanahome.Interfaces.Interactor;
+import dagorik.mariachi.com.ohanahome.Models.Compras.Buy;
 import dagorik.mariachi.com.ohanahome.Models.Porcentaje;
 import dagorik.mariachi.com.ohanahome.Models.Porsentajes;
 import dagorik.mariachi.com.ohanahome.Views.MainActivityMain;
@@ -24,6 +25,7 @@ public class PresenterMainMainImp implements IPresenterMain {
     Interactor interactor;
     IActivityMain activity;
     List<Porcentaje> porcentajeList = new ArrayList<>();
+    List<Buy> buyList = new ArrayList<>();
 
 
     public PresenterMainMainImp(MainActivityMain mainActivity) {
@@ -51,23 +53,31 @@ public class PresenterMainMainImp implements IPresenterMain {
 
         porcentajeList.add(data);
 
-
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> stringList.add(y.getName()));
         Observable.fromIterable(porcentajeList).flatMapIterable(x -> x.getPorsentajes()).subscribe(y -> integerList.add(y.getPorsent()));
 
-
         activity.setUpViewPager(integerList, stringList);
 
-        //activity.setUpRecyclerView(presenterMainRV);
-        //Log.e("MyLoguin", "Apunto de ejecutar el rv");
 
+        Buy buy = interactor.getDataCompras();
+        buyList.add(buy);
+
+
+    }
+
+
+    @Override
+    public void setRecyclerChart() {
+        PresenterMainRV presenterMainRV = new PresenterMainRV(porcentajeList);
+        activity.setUpRecyclerView(presenterMainRV);
     }
 
     @Override
-    public void setRecycler() {
-        PresenterMainRV presenterMainRV = new PresenterMainRV(porcentajeList);
-        activity.setUpRecyclerView(presenterMainRV);
-
+    public void setRecyclerHistory() {
+        Log.e("MYLog", buyList.toString());
+        PresenterHistoryRV presenterHistoryRV = new PresenterHistoryRV(buyList);
+        activity.setUpRecyclerViewHis(presenterHistoryRV);
     }
+
 
 }

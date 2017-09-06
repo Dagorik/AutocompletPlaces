@@ -4,6 +4,7 @@ import org.json.JSONException;
 
 import java.util.List;
 
+import dagorik.mariachi.com.ohanahome.Models.Compras.Buy;
 import dagorik.mariachi.com.ohanahome.Models.Porcentaje;
 import dagorik.mariachi.com.ohanahome.Models.Porsentajes;
 
@@ -14,6 +15,9 @@ import dagorik.mariachi.com.ohanahome.Models.Porsentajes;
 public interface Interactor {
 
     Porcentaje getDataFromAPI();
+
+
+    Buy getDataCompras();
 
 
 }

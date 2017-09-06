@@ -4,6 +4,7 @@ import android.support.v4.view.ViewPager;
 
 import java.util.List;
 
+import dagorik.mariachi.com.ohanahome.Presenter.PresenterHistoryRV;
 import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 
 /**
@@ -18,4 +19,6 @@ public interface IActivityMain {
     void setUpViewPager(List<Integer> porsent, List<String> name);
 
     void setUpRecyclerView(PresenterMainRV presenterMainRV);
+
+    void setUpRecyclerViewHis(PresenterHistoryRV presenterHistoryRV);
 }

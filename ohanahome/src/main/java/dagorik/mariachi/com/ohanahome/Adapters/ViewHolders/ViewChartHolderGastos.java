@@ -2,10 +2,8 @@ package dagorik.mariachi.com.ohanahome.Adapters.ViewHolders;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.inputmethodservice.Keyboard;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import dagorik.mariachi.com.ohanahome.Interfaces.RowView;
+import dagorik.mariachi.com.ohanahome.Interfaces.RowViewChart;
 import dagorik.mariachi.com.ohanahome.R;
 import io.reactivex.Observable;
 
@@ -27,12 +25,11 @@ import io.reactivex.Observable;
  * Created by Dagorik on 29/08/17.
  */
 
-public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView {
+public class ViewChartHolderGastos extends RecyclerView.ViewHolder implements RowViewChart {
 
     TextView tvName;
     List<Integer> porsent = new ArrayList<>();
     List<String> name = new ArrayList<>();
-    private List<ChartData> data = new ArrayList<>();
     Random rnd = new Random();
     private PieChart pieChart;
     private ViewPager mViewPager;
@@ -41,11 +38,12 @@ public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView
     private ViewPager upViewPagerMonth;
     private LinearLayout linearLayoutNames3;
     private LinearLayout linearLayoutNames4;
-    boolean bol = true;
     private RecyclerView recyclerView;
+    boolean bol = true;
 
 
-    public ViewHolderGastos(View itemView) {
+
+    public ViewChartHolderGastos(View itemView) {
         super(itemView);
 
         pieChart = (PieChart) itemView.findViewById(R.id.pie_chart);
@@ -69,10 +67,12 @@ public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView
 
     @Override
     public void drawChar(List<Integer> porsent) {
-        //Log.e("MyLogDraw",porsent.toString());
-        Observable.fromIterable(porsent).subscribe(integer ->
+        List<ChartData> data = new ArrayList<>();
+
+        Observable.fromIterable(porsent ).subscribe(integer ->
                 data.add(new ChartData(integer + "%", integer, Color.WHITE,
                         Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)))));
+
 
         pieChart.setChartData(data);
     }
@@ -81,12 +81,16 @@ public class ViewHolderGastos extends RecyclerView.ViewHolder implements RowView
     public void setColorNames(List<String> names, Context context) {
 
 
+        linearLayoutNames2.removeAllViews();
+        linearLayoutNames3.removeAllViews();
+
         Observable.fromIterable(names).subscribe(text -> {
+
 
             TextView myTextView = new TextView(context);
             ImageView myImageView = new ImageView(context);
 
-            Log.e("MiTextView",myImageView.toString());
+
 
             myTextView.setText("   " + text.toString());
 

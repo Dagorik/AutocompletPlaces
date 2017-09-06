@@ -15,8 +15,6 @@ import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 public interface IFragmentChar {
 
 
-    void setColorNames(List<String> name);
-
     void setUpRecyclerView(PresenterMainRV presenterMainRV);
 
 }

@@ -5,18 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import java.util.List;
 
-import dagorik.mariachi.com.ohanahome.Adapters.GastosAdapter;
 import dagorik.mariachi.com.ohanahome.Interfaces.IActivityMain;
 import dagorik.mariachi.com.ohanahome.Interfaces.IFragmentChar;
+import dagorik.mariachi.com.ohanahome.Interfaces.IFragmentHIsotry;
 import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMain;
-import dagorik.mariachi.com.ohanahome.Interfaces.IPresenterMainRV;
+import dagorik.mariachi.com.ohanahome.Presenter.PresenterHistoryRV;
 import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainMainImp;
 import dagorik.mariachi.com.ohanahome.Presenter.PresenterMainRV;
 import dagorik.mariachi.com.ohanahome.R;
@@ -28,7 +25,8 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
     TabLayout tabLayout;
     Toolbar toolbar;
     ViewPager viewPager;
-    private IFragmentChar fragment;
+    private IFragmentChar fragmentChar;
+    private IFragmentHIsotry fragmentHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,8 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
         presenter = new PresenterMainMainImp(this);
 
 
-        fragment = new CharFragment(presenter);
+        fragmentChar = new CharFragment(presenter);
+        fragmentHistory = new HistoryFragment(presenter);
 
 
         presenter.drawBar();
@@ -57,8 +56,8 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
     public void setUpViewPager(List<Integer> porsent, List<String> name) {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment((Fragment) fragment, "ESTADÍSTICAS");
-        adapter.addFragment(new HistoryFragment(), "HISTORIAL");
+        adapter.addFragment((Fragment) fragmentChar, "ESTADÍSTICAS");
+        adapter.addFragment((Fragment) fragmentHistory, "HISTORIAL");
         viewPager.setAdapter(adapter);
     }
 
@@ -70,7 +69,13 @@ public class MainActivityMain extends AppCompatActivity implements IActivityMain
 
     @Override
     public void setUpRecyclerView(PresenterMainRV presenterMainRV) {
-        fragment.setUpRecyclerView(presenterMainRV);
+        fragmentChar.setUpRecyclerView(presenterMainRV);
 
+
+    }
+
+    @Override
+    public void setUpRecyclerViewHis(PresenterHistoryRV presenterHistoryRV) {
+        fragmentHistory.setUpRecyclerView(presenterHistoryRV);
     }
 }

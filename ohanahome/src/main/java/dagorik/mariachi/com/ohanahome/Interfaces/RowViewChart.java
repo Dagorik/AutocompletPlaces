@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Dagorik on 29/08/17.
  */
 
-public interface RowView {
+public interface RowViewChart {
 
     void setTitleRv(String title);
     void setStarCountRv(int starCount);

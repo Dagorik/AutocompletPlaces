@@ -60,7 +60,7 @@ public class CharFragment extends Fragment implements IFragmentChar {
 
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_gastos);
-        presenterMain.setRecycler();
+        presenterMain.setRecyclerChart();
 
         return view;
     }
@@ -70,50 +70,6 @@ public class CharFragment extends Fragment implements IFragmentChar {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
         viewPagerAdapter.addFragment(new MonthFragment(), "");
         viewPagerMonth.setAdapter(viewPagerAdapter);
-
-    }
-
-
-
-
-
-    @Override
-    public void setColorNames(List<String> name) {
-
-//
-//        Observable.fromIterable(name).subscribe(text -> {
-//
-//            TextView myTextView = new TextView(getActivity());
-//            ImageView myImageView = new ImageView(getActivity());
-//
-//            myTextView.setText("   " + text.toString());
-//
-//            myImageView.setBackgroundColor(Color.argb(255, rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-//
-//            LinearLayout.LayoutParams parms = new LinearLayout.LayoutParams(50, 50);
-//
-//            myImageView.setLayoutParams(parms);
-//
-//            linearLayoutNames4 = new LinearLayout(getActivity());
-//            LinearLayout.LayoutParams parmslin = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//            linearLayoutNames4.setOrientation(LinearLayout.HORIZONTAL);
-//            linearLayoutNames4.setLayoutParams(parmslin);
-//
-//            if (bol) {
-//                linearLayoutNames4.addView(myImageView);
-//                linearLayoutNames4.addView(myTextView);
-//                linearLayoutNames2.addView(linearLayoutNames4);
-//
-//                bol = false;
-//            } else {
-//                linearLayoutNames4.addView(myImageView);
-//                linearLayoutNames4.addView(myTextView);
-//                linearLayoutNames3.addView(linearLayoutNames4);
-//                bol = true;
-//            }
-//
-//        });
-
 
     }
 
