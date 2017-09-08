@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/calculosx2/calculosx2.iml" filepath="$PROJECT_DIR$/calculosx2/calculosx2.iml" />
       <module fileurl="file://$PROJECT_DIR$/caluclos/caluclos.iml" filepath="$PROJECT_DIR$/caluclos/caluclos.iml" />
       <module fileurl="file://$PROJECT_DIR$/ohanahome/ohanahome.iml" filepath="$PROJECT_DIR$/ohanahome/ohanahome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/peticiones/peticiones.iml" filepath="$PROJECT_DIR$/peticiones/peticiones.iml" />
     </modules>
   </component>
 </project>
