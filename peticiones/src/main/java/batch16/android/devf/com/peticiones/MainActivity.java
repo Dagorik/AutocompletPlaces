@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         MovilOrdenInsert movilOrdenInsert = new MovilOrdenInsert();
-        movilOrdenInsert.setClvTipoOrden(1);
+        movilOrdenInsert.setClvTipoOrden(1);// 1 = MANTENIMIENTO, 2= INSTALACION
         movilOrdenInsert.setGuidUsuario("698fafb9-ad30-4bdc-b7cf-4b1ef25ca9d6"); //DATO PROVENIENTE DE login
         movilOrdenInsert.setNumero(13);
         movilOrdenInsert.setImagen("3sfgfrctvycrtcrctvcrrc7g6f5df6g7h65ftg6f5g676f5h7g6f57h6crtvycr7g6f57h");//IMAGEN EN BASE 64
