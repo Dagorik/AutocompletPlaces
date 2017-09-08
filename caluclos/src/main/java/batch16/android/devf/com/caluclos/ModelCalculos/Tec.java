@@ -42,7 +42,6 @@ public class Tec {
         double atenuacionDw = (distancia * dBDW) / 100;
         double atenuacionUp = (distancia * dBUp) / 100;
 
-        //Log.e("MyASLDk",atenuacionCD + " " + atenuacionDw + " "+ atenuacionUp);
         //obtenerPotencia(atenuacionCD, atenuacionUp, atenuacionDw);
 
         return new double[]{atenuacionCD, atenuacionDw, atenuacionUp};
@@ -64,7 +63,6 @@ public class Tec {
         dBUp = Double.parseDouble(dbUp);
 
     }
-
 
     public double[] obtenerPotencia(double atenuacionCD, double atenuacionDw, double atenuacionUp) {
         double potenciaCd = Double.parseDouble(cajaDigital.getPotencia());
