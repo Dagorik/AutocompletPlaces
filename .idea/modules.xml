@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/PlacesAutocomplete.iml" filepath="$PROJECT_DIR$/PlacesAutocomplete.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bottomsheet/bottomsheet.iml" filepath="$PROJECT_DIR$/bottomsheet/bottomsheet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calculosx2/calculosx2.iml" filepath="$PROJECT_DIR$/calculosx2/calculosx2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/caluclos/caluclos.iml" filepath="$PROJECT_DIR$/caluclos/caluclos.iml" />
       <module fileurl="file://$PROJECT_DIR$/ohanahome/ohanahome.iml" filepath="$PROJECT_DIR$/ohanahome/ohanahome.iml" />
     </modules>
   </component>

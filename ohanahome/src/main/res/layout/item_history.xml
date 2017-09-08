@@ -74,7 +74,7 @@
             android:text="$3504.00"
             android:textAlignment="textEnd"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>

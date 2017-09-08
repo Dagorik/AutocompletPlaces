@@ -64,14 +64,14 @@ public class InteractorImp implements Interactor {
         compra.setDescription("Chedrahui Selecto Santa Fe");
         compra.setPerson("10");
         compra.setCheck("20");
-        compra.setTotal("$3419.00");
+        compra.setTotal("3419.00");
 
         Compra compra2 = new Compra();
         compra2.setName("Asado del fin de Semana");
         compra2.setDescription("Costco Per");
         compra2.setPerson("1");
         compra2.setCheck("4");
-        compra2.setTotal("$419.00");
+        compra2.setTotal("419.00");
 
 
         Compra compra3 = new Compra();
@@ -79,7 +79,7 @@ public class InteractorImp implements Interactor {
         compra3.setDescription("Soriana Av norte");
         compra3.setPerson("5");
         compra3.setCheck("20");
-        compra3.setTotal("$1319.50");
+        compra3.setTotal("1319.50");
 
 
         Compra compra4 = new Compra();
@@ -87,14 +87,14 @@ public class InteractorImp implements Interactor {
         compra4.setDescription("Liverpool Sur");
         compra4.setPerson("10");
         compra4.setCheck("20");
-        compra4.setTotal("$6419.00");
+        compra4.setTotal("6419.00");
 
         Compra compra5 = new Compra();
         compra5.setName("Compra de Play 4");
         compra5.setDescription("Plaza Copilcp");
         compra5.setPerson("1");
         compra5.setCheck("2");
-        compra5.setTotal("$9419.00");
+        compra5.setTotal("9419.00");
 
         buyList.add(compra);
         buyList.add(compra2);
